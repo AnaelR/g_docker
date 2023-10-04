@@ -8,11 +8,11 @@ steps:
 - name: Login to GitHub Container Registry
 uses: docker/login-action@v1
 with:
-registry: ghcr.io
-username: ${{ github.actor }}
-password: ${{ secrets.GITHUB_TOKEN }}
+  registry: ghcr.io
+  username: ${{ github.actor }}
+  password: ${{ secrets.GITHUB_TOKEN }}
 - name: Build the hello-docker Docker image
 run: |
-       docker build . --tag ghcr.io/deselikem/hello-docker-gcr-demo:latest
-       docker run ghcr.io/deselikem/hello-docker-gcr-demo:latest
-       docker push ghcr.io/deselikem/hello-docker-gcr-demo:latest
+       docker build . --tag ghcr.io/AnaelR/g_docker:latest
+       docker run ghcr.io/AnaelR/g_docker:latest
+       docker push ghcr.io/AnaelR/g_docker:latest
