@@ -21,5 +21,4 @@ jobs:
       - name: Build and publish the hello-docker Docker image
         run: |
           docker build . --tag ghcr.io/anaelr/g_docker:latest
-          docker run ghcr.io/anaelr/g_docker:latest
           docker push ghcr.io/anaelr/g_docker:latest
