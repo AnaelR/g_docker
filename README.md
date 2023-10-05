@@ -1,5 +1,7 @@
 # express-app-testing-demo
 
+[![Coverage Status](https://coveralls.io/repos/github/AnaelR/g_docker/badge.svg?branch=develop)](https://coveralls.io/github/AnaelR/g_docker?branch=develop)
+
 This project is a simple express app for demonstrating testing and code coverage.
 [Jest](https://facebook.github.io/jest/) and
 [Supertest](https://github.com/visionmedia/supertest) are used for testing.
