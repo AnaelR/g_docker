@@ -1,8 +1,8 @@
-name: publish
+name: publish-prod
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "master" ]
 
 jobs:
   publish-hello-docker-image:
@@ -21,5 +21,5 @@ jobs:
 
       - name: Build and publish the hello-docker Docker image
         run: |
-          docker build . --tag ghcr.io/anaelr/g_docker:staging
-          docker push ghcr.io/anaelr/g_docker:staging
+          docker build . --tag ghcr.io/anaelr/g_docker:production
+          docker push ghcr.io/anaelr/g_docker:production
