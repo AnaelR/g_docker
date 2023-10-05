@@ -1,5 +1,5 @@
 FROM node:alpine
-RUN npm i
 COPY . /app
 WORKDIR /app
+RUN npm i
 CMD ["npm", "start"]
