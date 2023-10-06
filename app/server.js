@@ -1,10 +1,16 @@
+require('dotenv').config()
 const express = require('express');
 const favicon = require('serve-favicon');
 const path = require('path');
+const listenMessage = require('./listen_message')
+
+listenMessage('dmii2-6')
+// console.log('env', process.env);     
 
 const app = express();
 
 // public assets
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use('/coverage', express.static(path.join(__dirname, '..', 'coverage')));
