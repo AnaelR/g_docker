@@ -5,7 +5,22 @@ const photoModel = require('./photo_model');
 const request = require('request')
 const { Storage } = require('@google-cloud/storage');
 const registeredTags = require('./registered_tags');
-const { json } = require('express/lib/response');
+const { initializeApp, applicationDefault } = require('firebase-admin/app');
+
+
+const { getDatabase } = require('firebase-admin/database');
+
+const firebaseApp = initializeApp({
+    credential: applicationDefault(),
+    databaseURL: 'https://temporaryprojectdmii-default-rtdb.firebaseio.com/'
+});
+
+const auth = getAuth(app);
+
+const db = getDatabase();
+const ref = db.ref('anael');
+
+const zipRef = ref.child('zip');
 
 // Creates a client; cache this for further use
 const pubSubClient = new PubSub();
@@ -66,6 +81,11 @@ function listenForMessages(subscriptionNameOrId) {
                 console.log('error in message handler', error);
             });
         store.setTags(args.tags)
+        zipRef.set({
+            [args.tags]: {
+                zip: 'public/users/anael-' + args.tags + '.zip'
+            }
+        })
         message.ack();
 
     };
